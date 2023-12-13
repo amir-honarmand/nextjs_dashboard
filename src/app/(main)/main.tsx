@@ -2,51 +2,28 @@
 import Grid from "@mui/material/Unstable_Grid2";
 import SidebarContainer from "./(container)/sidebar-container";
 import MainContainer from "./(container)/main-container";
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Avatar,
-} from "@mui/material";
+import { useState } from "react";
+
+const drawerWidth = 150;
 
 export default function Main() {
-  
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const drawer = (
-    <div>
-      {/* <Toolbar /> */}
-      {/* <Divider /> */}
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <Avatar /> : <Avatar />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <Avatar /> : <Avatar />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-  
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   return (
-      <Grid container>
-        <SidebarContainer drawer={drawer}/>
-        <MainContainer drawer={drawer}/>
-      </Grid>
+    <Grid container>
+      <SidebarContainer
+        drawerWidth={drawerWidth}
+        mobileOpen={mobileOpen}
+        handleDrawerToggle={handleDrawerToggle}
+      />
+      <MainContainer
+        drawerWidth={drawerWidth}
+        handleDrawerToggle={handleDrawerToggle}
+      />
+    </Grid>
   );
 }
