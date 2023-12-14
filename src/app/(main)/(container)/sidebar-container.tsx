@@ -1,17 +1,8 @@
 "use client";
 import Grid from "@mui/material/Unstable_Grid2";
-import {
-  Box,
-  CssBaseline,
-  Drawer,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Avatar,
-} from "@mui/material";
+import { Box, CssBaseline, Drawer } from "@mui/material";
+import DrawerUi from "@/components/ui/Drawer";
+import SidebarFooter from "@/components/ui/SidebarFooter";
 
 export default function SidebarContainer({
   drawerWidth,
@@ -22,31 +13,7 @@ export default function SidebarContainer({
   mobileOpen: any;
   handleDrawerToggle: any;
 }) {
-  const drawer = (
-    <div>
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <Avatar /> : <Avatar />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{index % 2 === 0 ? <Avatar /> : <Avatar />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+  const spaceBetween = <div className="h-full"></div>;
 
   return (
     <Grid md={2} sx={{ display: { xs: "none", md: "block" } }}>
@@ -55,7 +22,7 @@ export default function SidebarContainer({
         <Box
           component="nav"
           sx={{ width: { md: drawerWidth }, flexShrink: { sm: 0 } }}
-          aria-label="mailbox folders"
+          aria-label="toolbox items"
         >
           <Drawer
             variant="permanent"
@@ -65,7 +32,9 @@ export default function SidebarContainer({
             }}
             open
           >
-            {drawer}
+            <DrawerUi />
+            {spaceBetween}
+            <SidebarFooter drawerWidth={drawerWidth} />
           </Drawer>
           <Drawer
             variant="temporary"
@@ -79,7 +48,9 @@ export default function SidebarContainer({
               "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
             }}
           >
-            {drawer}
+            <DrawerUi />
+            {spaceBetween}
+            <SidebarFooter drawerWidth={drawerWidth} />
           </Drawer>
         </Box>
       </Box>

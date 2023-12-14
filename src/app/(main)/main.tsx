@@ -4,7 +4,7 @@ import SidebarContainer from "./(container)/sidebar-container";
 import MainContainer from "./(container)/main-container";
 import { useState } from "react";
 
-const drawerWidth = 150;
+const drawerWidth = 200;
 
 export default function Main() {
   const [mobileOpen, setMobileOpen] = useState(false);
