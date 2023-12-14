@@ -18,36 +18,19 @@ export const lightTheme = createTheme({
   typography: {
     fontFamily: `${vazirFont.style.fontFamily}, ${roboto.style.fontFamily}`
   },
-  // palette: {
-  //   mode: 'dark',
-  //   background: {
-  //     paper: '#161616ff',
-  //     default: '#0B0809ff'
-  //   },
-  //   common: {
-  //     black: '#0B0809ff',
-  //     white: '#FDFDFDff'
-  //   },
-  //   primary: {
-  //     main: '#62208Dff',
-  //     contrastText: '#FDFDFDff'
-  //   },
-  //   secondary: {
-  //     main: '#161616ff',
-  //   },
-  //   // success: {
-  //   //   main: '#62208Dff'
-  //   // },
-  //   info: {
-  //     main: '#3498db'
-  //   },
-  //   error: {
-  //     main: '#F11A7B'
-  //   },
-  //   text: {
-  //     primary: '#FDFDFDff',
-  //     secondary: '#6A6A6Aff'
-  //   }
-
-  // }
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#cdf463',
+    },
+    secondary: {
+      main: '#170a13',
+    },
+    info: {
+      main: '#eff3f4'
+    },
+    common: {
+      white: '#fafafa'
+    }
+  }
 })

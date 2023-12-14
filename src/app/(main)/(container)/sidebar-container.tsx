@@ -1,8 +1,7 @@
-"use client";
-import Grid from "@mui/material/Unstable_Grid2";
-import { Box, CssBaseline, Drawer } from "@mui/material";
-import DrawerUi from "@/components/ui/Drawer";
-import SidebarFooter from "@/components/ui/SidebarFooter";
+import { Box, Drawer } from "@mui/material";
+import DrawerContent from "@/components/ui/Drawer";
+import SButton from "@/components/buttons/Button";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function SidebarContainer({
   drawerWidth,
@@ -13,47 +12,53 @@ export default function SidebarContainer({
   mobileOpen: any;
   handleDrawerToggle: any;
 }) {
-  const spaceBetween = <div className="h-full"></div>;
+  const paperStyle = { boxSizing: "border-box", width: drawerWidth, backgroundColor: "common.white" };
 
   return (
-    <Grid md={2} sx={{ display: { xs: "none", md: "block" } }}>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <Box
-          component="nav"
-          sx={{ width: { md: drawerWidth }, flexShrink: { sm: 0 } }}
-          aria-label="toolbox items"
-        >
-          <Drawer
-            variant="permanent"
-            sx={{
-              display: { xs: "none", md: "block" },
-              "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-            }}
-            open
-          >
-            <DrawerUi />
-            {spaceBetween}
-            <SidebarFooter drawerWidth={drawerWidth} />
-          </Drawer>
-          <Drawer
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true,
-            }}
-            sx={{
-              display: { xs: "block", md: "none" },
-              "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-            }}
-          >
-            <DrawerUi />
-            {spaceBetween}
-            <SidebarFooter drawerWidth={drawerWidth} />
-          </Drawer>
-        </Box>
+    <div className="bg-bgGray">
+      <Box
+        sx={{
+          display: { xs: "block", lg: "none" },
+          position: "fixed",
+          left: 5,
+          top: 5,
+          zIndex: 1,
+        }}
+      >
+        <SButton onClick={handleDrawerToggle}>
+          <MenuIcon />
+        </SButton>
       </Box>
-    </Grid>
+      <Box
+        component="nav"
+        sx={{ width: { lg: drawerWidth }, flexShrink: { lg: 0 } }}
+        aria-label="nav drawer"
+      >
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true,
+          }}
+          sx={{
+            display: { xs: "block", lg: "none" },
+            "& .MuiDrawer-paper": paperStyle,
+          }}
+        >
+          <DrawerContent />
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", lg: "block" },
+            "& .MuiDrawer-paper": paperStyle,
+          }}
+          open
+        >
+          <DrawerContent />
+        </Drawer>
+      </Box>
+    </div>
   );
 }

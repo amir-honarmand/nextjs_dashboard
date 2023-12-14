@@ -6,7 +6,7 @@ import AvatarIcon from "../icons/AvatarIcon";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
-export default function SidebarFooter({ drawerWidth }: { drawerWidth: number }) {
+export default function SidebarFooter() {
   const user = '';
 
   return (

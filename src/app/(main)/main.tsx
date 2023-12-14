@@ -1,10 +1,12 @@
 "use client";
 import Grid from "@mui/material/Unstable_Grid2";
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
 import SidebarContainer from "./(container)/sidebar-container";
 import MainContainer from "./(container)/main-container";
-import { useState } from "react";
 
-const drawerWidth = 200;
+const drawerWidth = 240;
 
 export default function Main() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -14,16 +16,16 @@ export default function Main() {
   };
 
   return (
-    <Grid container>
-      <SidebarContainer
-        drawerWidth={drawerWidth}
-        mobileOpen={mobileOpen}
-        handleDrawerToggle={handleDrawerToggle}
-      />
-      <MainContainer
-        drawerWidth={drawerWidth}
-        handleDrawerToggle={handleDrawerToggle}
-      />
+    <Grid container sx={{minHeight: '100vh'}}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <SidebarContainer
+          mobileOpen={mobileOpen}
+          drawerWidth={drawerWidth}
+          handleDrawerToggle={handleDrawerToggle}
+        />
+        <MainContainer drawerWidth={drawerWidth} />
+      </Box>
     </Grid>
   );
 }
