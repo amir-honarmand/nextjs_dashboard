@@ -2,6 +2,7 @@ import { Box, Drawer } from "@mui/material";
 import DrawerContent from "@/components/ui/Drawer";
 import SButton from "@/components/buttons/Button";
 import MenuIcon from "@mui/icons-material/Menu";
+import RButton from "@/components/buttons/RoundedButton";
 
 export default function SidebarContainer({
   drawerWidth,
@@ -25,9 +26,9 @@ export default function SidebarContainer({
           zIndex: 1,
         }}
       >
-        <SButton onClick={handleDrawerToggle}>
+        <RButton onClick={handleDrawerToggle}>
           <MenuIcon />
-        </SButton>
+        </RButton>
       </Box>
       <Box
         component="nav"
