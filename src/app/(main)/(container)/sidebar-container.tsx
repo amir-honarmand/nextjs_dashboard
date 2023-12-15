@@ -23,7 +23,7 @@ export default function SidebarContainer({
           position: "fixed",
           left: 5,
           top: 5,
-          zIndex: 1,
+          zIndex: 99,
         }}
       >
         <RButton onClick={handleDrawerToggle}>

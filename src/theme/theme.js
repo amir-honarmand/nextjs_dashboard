@@ -32,5 +32,15 @@ export const lightTheme = createTheme({
     common: {
       white: '#fafafa'
     }
+  },
+  components: {
+    MuiAppBar: {
+      defaultProps: {
+        style: {
+          boxShadow: 'none',
+          backgroundColor: 'inherit'
+        }
+      }
+    }
   }
 })
