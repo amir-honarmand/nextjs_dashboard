@@ -7,7 +7,7 @@ export default function SidebarFooter() {
 
   return (
     <>
-      <div className={`flex flex-col items-center mt-10`}>
+      <div className='flex flex-col items-center'>
         <div className="flex flex-col items-center w-full mb-8">
           {user ? <SAvatar src="#" alt="تصویر کاربر" /> : <AvatarIcon />}
           <p className="text-lg font-bold break-words">امیر هنرمند زاده</p>
