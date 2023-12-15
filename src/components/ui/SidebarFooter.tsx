@@ -1,10 +1,6 @@
-import {} from "@mui/material";
-import { styled } from "@mui/material/styles";
 import LogoutBtn from "../buttons/LogoutBtn";
 import SAvatar from "../images/Avatar";
 import AvatarIcon from "../icons/AvatarIcon";
-
-const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
 
 export default function SidebarFooter() {
   const user = '';
@@ -21,7 +17,6 @@ export default function SidebarFooter() {
           <LogoutBtn />
         </div>
       </div>
-      {/* <Offset /> */}
     </>
   );
 }
