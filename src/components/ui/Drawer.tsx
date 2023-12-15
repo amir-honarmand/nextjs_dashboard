@@ -1,6 +1,5 @@
-import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Avatar } from "@mui/material";
+import { List, ListItem } from "@mui/material";
 import SidebarFooter from "./SidebarFooter";
-import SButton from "../buttons/Button";
 import DashboardIcon from "../icons/DashboardIcon";
 import StatisticsIcon from "../icons/StatisticsIcon";
 import TransactionIcon from "../icons/TransactionIcon";
@@ -8,6 +7,7 @@ import MyTeamIcon from "../icons/MyTeamIcon";
 import SellReportIcon from "../icons/SellReportIcon";
 import SettingIcon from "../icons/SettingIcon";
 import SidebarHeader from "./SidebarHeader";
+import LButton from "../buttons/ListButton";
 
 export default function DrawerContent() {
   const listItems = [
@@ -27,9 +27,9 @@ export default function DrawerContent() {
           <List>
             {listItems.map((item) => (
               <ListItem key={item.title}>
-                <SButton label={item.title} onClick={() => {}}>
+                <LButton label={item.title} onClick={() => {}}>
                   {item.icon}
-                </SButton>
+                </LButton>
               </ListItem>
             ))}
           </List>
