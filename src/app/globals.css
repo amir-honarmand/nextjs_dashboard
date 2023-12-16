@@ -6,4 +6,7 @@
   .icon-in-btn {
     @apply w-5 h-5 ml-2 text-secondary;
   }
+  .icon-style {
+    @apply w-6 h-6 text-secondary bg-bgGray rounded-full p-1;
+  }
 }
