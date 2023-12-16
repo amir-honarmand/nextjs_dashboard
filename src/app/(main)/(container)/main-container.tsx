@@ -4,6 +4,8 @@ import { Box, Toolbar } from "@mui/material";
 import TotalEarningIcon from "@/components/icons/TotalEarningIcon";
 import AverageEarningIcon from "@/components/icons/AverageEarningIcon";
 import ConversationRateIcon from "@/components/icons/ConversationRateIcon";
+import BoxBgImage from "@/assets/images/box-bg.png";
+import PButton from "@/components/buttons/PrimaryButton";
 
 export default function MainContainer({ drawerWidth }: { drawerWidth: number }) {
   return (
@@ -19,7 +21,7 @@ export default function MainContainer({ drawerWidth }: { drawerWidth: number }) 
         }}
       >
         <Toolbar sx={{ mb: "4rem" }} />
-        <section className="flex xs:flex-col lg:flex-row gap-4">
+        <section className="flex xs:flex-col lg:flex-row gap-10">
           <section>
             <div className="flex gap-5">
               <SBox
@@ -52,7 +54,23 @@ export default function MainContainer({ drawerWidth }: { drawerWidth: number }) 
           </section>
 
           {/* column */}
-          <section className=" bg-red-700">hello 2</section>
+          <section className="flex flex-col gap-5">
+            <div
+              style={{
+                backgroundImage: `url(${BoxBgImage.src})`,
+              }}
+              className="flex flex-col bg-cover bg-center bg-no-repeat 
+              text-bgWhite pr-5 pl-10 rounded-xl"
+            >
+              <p className="font-bold text-base py-4">ارتقاء به نسخه حرفه ای</p>
+              <div className="flex flex-row items-center">
+                <p className="text-lg font-bold">۵۶,۰۰۰ تومان</p>
+                <p> / در ماه</p>
+              </div>
+                <p>۵۶,۰۰۰ تومان سالانه</p>
+              <div className="py-4"><PButton onClick={() => {}} label="ارتقاء دهید" /></div>
+            </div>
+          </section>
         </section>
       </Box>
     </>
