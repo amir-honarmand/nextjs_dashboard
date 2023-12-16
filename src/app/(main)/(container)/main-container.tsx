@@ -8,9 +8,10 @@ export default function MainContainer({ drawerWidth }: { drawerWidth: number }) 
         sx={{
           width: { lg: `calc(100% - ${drawerWidth}px)` },
           ml: { lg: `${drawerWidth}px` },
+          zIndex: 0
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{mt: {xs: '3.5rem', lg: '3rem'}, mx: '.5rem'}}>
           <div className="flex flex-col gap-1 w-full">
             <h1 className="font-bold text-2xl">داشبورد</h1>
             <h6>۵ فروردین ۱۳۷۱</h6>
@@ -28,7 +29,7 @@ export default function MainContainer({ drawerWidth }: { drawerWidth: number }) 
           backgroundColor: "info.main",
         }}
       >
-        <Toolbar/>
+        <Toolbar sx={{mb: '4rem'}}/>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
