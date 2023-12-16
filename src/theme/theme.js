@@ -33,14 +33,14 @@ export const lightTheme = createTheme({
       white: '#fafafa'
     }
   },
-  components: {
-    MuiAppBar: {
-      defaultProps: {
-        style: {
-          boxShadow: 'none',
-          backgroundColor: 'inherit'
-        }
-      }
-    }
-  }
+  // components: {
+  //   MuiAppBar: {
+  //     defaultProps: {
+  //       style: {
+  //         boxShadow: 'none',
+  //         backgroundColor: 'red'
+  //       }
+  //     }
+  //   }
+  // }
 })
