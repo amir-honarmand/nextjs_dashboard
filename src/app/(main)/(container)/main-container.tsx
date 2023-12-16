@@ -1,30 +1,10 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import AppBarContent from "@/components/ui/AppbarContent";
+import { Box, Toolbar, Typography } from "@mui/material";
 
 export default function MainContainer({ drawerWidth }: { drawerWidth: number }) {
   return (
     <>
-      <AppBar
-        position="fixed"
-        style={{
-          boxShadow: "none",
-        }}
-        sx={{
-          backgroundColor: 'info.main',
-          width: { lg: `calc(100% - ${drawerWidth}px)` },
-          ml: { lg: `${drawerWidth}px` },
-          pb: '.5rem',
-          zIndex: 0,
-        }}
-      >
-        <Toolbar sx={{ mt: { xs: "3.5rem", lg: "3rem" }, mx: ".5rem" }}>
-          <div className="flex flex-col gap-1 w-full">
-            <h1 className="font-bold text-2xl">داشبورد</h1>
-            <h6>۵ فروردین ۱۳۷۱</h6>
-          </div>
-          <div></div>
-          <div></div>
-        </Toolbar>
-      </AppBar>
+      <AppBarContent drawerWidth={drawerWidth} />
       <Box
         component="main"
         sx={{
