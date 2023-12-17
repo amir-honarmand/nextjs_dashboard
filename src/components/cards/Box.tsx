@@ -12,7 +12,7 @@ export default function SBox({
   children: JSX.Element
 }) {
   return (
-    <div className={`flex flex-col p-4 rounded-3xl ${bgColor}`}>
+    <div className={`flex flex-col min-w-[15rem] p-4 rounded-3xl ${bgColor}`}>
       <div className="flex flex-row gap-1 items-center">
         {children}
         <p className="font-bold text-sm">{title}</p>
