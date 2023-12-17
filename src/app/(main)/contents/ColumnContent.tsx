@@ -8,7 +8,7 @@ export default function ColumnContent() {
         style={{
           backgroundImage: `url(${BoxBgImage.src})`,
         }}
-        className="flex flex-col bg-cover bg-center bg-no-repeat 
+        className="flex flex-col max-w-[30rem] bg-cover bg-center bg-no-repeat 
               text-bgWhite pr-5 pl-10 rounded-xl"
       >
         <p className="font-bold text-base py-4">ارتقاء به نسخه حرفه ای</p>

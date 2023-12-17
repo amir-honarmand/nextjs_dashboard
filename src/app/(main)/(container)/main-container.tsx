@@ -21,11 +21,11 @@ export default function MainContainer({ drawerWidth }: { drawerWidth: number }) 
 
         <div>
           <Grid container>
-            <Grid xs={12} md={9}>
+            <Grid xs={12} md={9} xl={8}>
               <MainContent />
             </Grid>
 
-            <Grid xs={12} md={3}>
+            <Grid xs={12} md={3} xl={4}>
               <ColumnContent />
             </Grid>
           </Grid>
