@@ -1,5 +1,5 @@
 import LogoutBtn from "../buttons/LogoutBtn";
-import SAvatar from "../images/Avatar";
+import SAvatar from "../avatars/Avatar";
 import AvatarIcon from "../icons/AvatarIcon";
 
 export default function SidebarFooter() {
