@@ -26,8 +26,8 @@ export default function LiButton(props: {
           <AvatarIcon classes={`${avatarClasses} bg-bgWhite`} />
         )}
         <div className="flex flex-col flex-grow items-start gap-1">
-          <span className="text-sm">{title}</span>
-          <span className="text-xs">{subTitle}</span>
+          <span className="text-sm truncate max-w-[7rem]">{title}</span>
+          <span className="text-xs truncate max-w-[7rem]">{subTitle}</span>
         </div>
         <div className="flex items-center w-5 h-5">
           <IoIosArrowBack />
