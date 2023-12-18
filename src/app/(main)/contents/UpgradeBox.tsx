@@ -7,8 +7,8 @@ export default function UpgradeBox() {
       style={{
         backgroundImage: `url(${BoxBgImage.src})`,
       }}
-      className="flex flex-col max-w-[30rem] bg-cover bg-center bg-no-repeat 
-              text-bgWhite pr-5 pl-10 rounded-xl"
+      className="box-in-column bg-cover bg-center bg-no-repeat 
+              text-bgWhite"
     >
       <p className="font-bold text-base py-4">ارتقاء به نسخه حرفه ای</p>
       <div className="flex flex-row items-center">

@@ -9,4 +9,7 @@
   .icon-style {
     @apply w-6 h-6 text-secondary bg-bgGray rounded-full p-1;
   }
+  .box-in-column {
+    @apply flex flex-col flex-grow pr-5 pl-10 rounded-xl;
+  }
 }

@@ -4,7 +4,7 @@ import DailyMeetingIcon from "@/components/icons/DailyMeetingIcon";
 
 export default function DailyMeeting() {
   return (
-    <div className="flex flex-col max-w-[30rem] bg-bgWhite text-secondary pr-5 pl-10 rounded-xl">
+    <div className="box-in-column bg-bgWhite text-secondary">
       <div className="flex flex-row gap-1 items-center mt-4 mb-1">
         <DailyMeetingIcon />
         <p className="font-bold text-base">نشست های روزانه</p>
