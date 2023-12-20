@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../../../src/styles//scss/globals.scss";
+import "../../src/styles//scss/globals.scss";
 import ThemeRegistry from "@/theme/ThemeRegistry";
 
 export const metadata: Metadata = {
