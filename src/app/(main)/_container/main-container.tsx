@@ -1,8 +1,8 @@
 import AppBarContent from "@/components/ui/AppbarContent";
 import { Box, Toolbar } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import MainContent from "../contents/MainContent";
-import ColumnContent from "../contents/ColumnContent";
+import MainContent from "../_contents/MainContent";
+import ColumnContent from "../_contents/ColumnContent";
 
 export default function MainContainer({ drawerWidth }: { drawerWidth: number }) {
   return (
