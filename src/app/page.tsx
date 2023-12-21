@@ -1,5 +1,5 @@
-import Main from "./(main)/main";
+import MainContent from "./(main)/contents/MainContent";
 
 export default function Home() {
-  return <Main />;
+  return <MainContent />;
 }

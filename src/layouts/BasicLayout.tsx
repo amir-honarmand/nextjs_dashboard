@@ -1,16 +1,15 @@
 "use client";
 import Grid from "@mui/material/Unstable_Grid2";
-import { useState } from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import SidebarContainer from "./container/sidebar-container";
-import MainContainer from "./container/main-container";
 import MainLayout from "@/layouts/MainLayout";
 import SidebarLayout from "@/layouts/SidebarLayout";
+import SidebarContainer from "@/app/(main)/container/sidebar-container";
 
 const drawerWidth = 240;
 
-export default function Main() {
+export default function BasicLayout({children}: {children: React.ReactNode}) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = (): void => {
@@ -29,7 +28,7 @@ export default function Main() {
           />
         </SidebarLayout>
         <MainLayout drawerWidth={drawerWidth}>
-          <MainContainer />
+          {children}
         </MainLayout>
       </Box>
     </Grid>

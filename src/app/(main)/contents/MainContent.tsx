@@ -1,3 +1,4 @@
+'use client'
 import TotalEarningIcon from "@/components/icons/TotalEarningIcon";
 import AverageEarningIcon from "@/components/icons/AverageEarningIcon";
 import ConversationRateIcon from "@/components/icons/ConversationRateIcon";

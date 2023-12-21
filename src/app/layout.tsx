@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../../src/styles//scss/globals.scss";
 import ThemeRegistry from "@/theme/ThemeRegistry";
+import BasicLayout from "@/layouts/BasicLayout";
 
 export const metadata: Metadata = {
   title: "Admin Panel By Amir Honarmand",
@@ -23,17 +24,19 @@ export const metadata: Metadata = {
     //   url: '/favicon-16x16.png',
     // },
     {
-      rel: 'icon',
-      url: '/favicon.ico',
+      rel: "icon",
+      url: "/favicon.ico",
     },
-  ]
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fa" dir="rtl">
       <body className="overflow-x-hidden">
-        <ThemeRegistry>{children}</ThemeRegistry>
+        <ThemeRegistry>
+          <BasicLayout>{children}</BasicLayout>
+        </ThemeRegistry>
       </body>
     </html>
   );
