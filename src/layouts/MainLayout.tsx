@@ -1,10 +1,16 @@
+import ColumnContent from "@/app/(main)/contents/ColumnContent";
 import AppBarContent from "@/components/ui/AppbarContent";
 import { Box, Toolbar } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import MainContent from "../_contents/MainContent";
-import ColumnContent from "../_contents/ColumnContent";
+import React from "react";
 
-export default function MainContainer({ drawerWidth }: { drawerWidth: number }) {
+export default function MainLayout({
+  drawerWidth,
+  children,
+}: {
+  drawerWidth: number;
+  children: React.ReactNode;
+}) {
   return (
     <>
       <AppBarContent drawerWidth={drawerWidth} />
@@ -22,7 +28,7 @@ export default function MainContainer({ drawerWidth }: { drawerWidth: number }) 
         <div>
           <Grid container>
             <Grid xs={12} lg={8}>
-              <MainContent />
+              {children}
             </Grid>
 
             <Grid xs={12} lg={4}>
