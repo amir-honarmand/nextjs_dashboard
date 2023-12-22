@@ -14,7 +14,7 @@ export default function DrawerContent() {
   const router = useRouter();
 
   const listItems = [
-    { title: "داشبورد", icon: <DashboardIcon />, route: "/" },
+    { title: "داشبورد", icon: <DashboardIcon />, route: "/auth" },
     { title: "آمارها", icon: <StatisticsIcon />, route: "/analytics" },
     { title: "تراکنش ها", icon: <TransactionIcon />, route: "/" },
     { title: "تیم من", icon: <MyTeamIcon />, route: "/" },
