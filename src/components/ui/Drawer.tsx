@@ -8,15 +8,18 @@ import SellReportIcon from "../icons/SellReportIcon";
 import SettingIcon from "../icons/SettingIcon";
 import SidebarHeader from "./SidebarHeader";
 import LButton from "../buttons/ListButton";
+import { useRouter } from "next/navigation";
 
 export default function DrawerContent() {
+  const router = useRouter();
+
   const listItems = [
-    { title: "داشبورد", icon: <DashboardIcon /> },
-    { title: "آمارها", icon: <StatisticsIcon /> },
-    { title: "تراکنش ها", icon: <TransactionIcon /> },
-    { title: "تیم من", icon: <MyTeamIcon /> },
-    { title: "گزارش فروش", icon: <SellReportIcon /> },
-    { title: "تنظیمات", icon: <SettingIcon /> },
+    { title: "داشبورد", icon: <DashboardIcon />, route: "/" },
+    { title: "آمارها", icon: <StatisticsIcon />, route: "/analytics" },
+    { title: "تراکنش ها", icon: <TransactionIcon />, route: "/" },
+    { title: "تیم من", icon: <MyTeamIcon />, route: "/" },
+    { title: "گزارش فروش", icon: <SellReportIcon />, route: "/" },
+    { title: "تنظیمات", icon: <SettingIcon />, route: "/" },
   ];
 
   return (
@@ -27,7 +30,12 @@ export default function DrawerContent() {
           <List>
             {listItems.map((item) => (
               <ListItem key={item.title}>
-                <LButton label={item.title} onClick={() => {}}>
+                <LButton
+                  label={item.title}
+                  onClick={() => {
+                    router.push(item.route);
+                  }}
+                >
                   {item.icon}
                 </LButton>
               </ListItem>

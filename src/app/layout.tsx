@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../../src/styles//scss/globals.scss";
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import BasicLayout from "@/layouts/BasicLayout";
+import CustomProvider from "@/redux/provider";
 
 export const metadata: Metadata = {
   title: "Admin Panel By Amir Honarmand",
@@ -34,9 +35,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fa" dir="rtl">
       <body className="overflow-x-hidden">
-        <ThemeRegistry>
-          <BasicLayout>{children}</BasicLayout>
-        </ThemeRegistry>
+        <CustomProvider>
+          <ThemeRegistry>
+            <BasicLayout>{children}</BasicLayout>
+          </ThemeRegistry>
+        </CustomProvider>
       </body>
     </html>
   );

@@ -9,28 +9,26 @@ import SidebarContainer from "@/app/(main)/container/sidebar-container";
 
 const drawerWidth = 240;
 
-export default function BasicLayout({children}: {children: React.ReactNode}) {
-  const [mobileOpen, setMobileOpen] = useState(false);
+export default function BasicLayout({ children }: { children: React.ReactNode }) {
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   const handleDrawerToggle = (): void => {
     setMobileOpen(!mobileOpen);
   };
 
   return (
-    <Grid container sx={{ minHeight: "100vh" }}>
-      <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <SidebarLayout drawerWidth={drawerWidth} handleDrawerToggle={handleDrawerToggle}>
-          <SidebarContainer
-            drawerWidth={drawerWidth}
-            handleDrawerToggle={handleDrawerToggle}
-            mobileOpen={mobileOpen}
-          />
-        </SidebarLayout>
-        <MainLayout drawerWidth={drawerWidth}>
-          {children}
-        </MainLayout>
-      </Box>
-    </Grid>
+      <Grid container sx={{ minHeight: "100vh" }}>
+        <Box sx={{ display: "flex" }}>
+          <CssBaseline />
+          <SidebarLayout drawerWidth={drawerWidth} handleDrawerToggle={handleDrawerToggle}>
+            <SidebarContainer
+              drawerWidth={drawerWidth}
+              handleDrawerToggle={handleDrawerToggle}
+              mobileOpen={mobileOpen}
+            />
+          </SidebarLayout>
+          <MainLayout drawerWidth={drawerWidth}>{children}</MainLayout>
+        </Box>
+      </Grid>
   );
 }
