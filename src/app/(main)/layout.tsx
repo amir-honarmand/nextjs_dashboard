@@ -3,6 +3,7 @@ import "../../../src/styles/scss/globals.scss";
 import ThemeRegistry from "@/theme/ThemeRegistry";
 import BasicLayout from "@/layouts/BasicLayout";
 import CustomProvider from "@/redux/provider";
+import FavIcon from '@/app/favicon.ico';
 
 export const metadata: Metadata = {
   title: "Admin Panel By Amir Honarmand",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     // },
     {
       rel: "icon",
-      url: "/favicon.ico",
+      url: FavIcon.src,
     },
   ],
 };
