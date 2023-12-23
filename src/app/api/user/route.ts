@@ -15,11 +15,14 @@ export async function GET(request: NextRequest) {
   // const query = searchParams.get('name');
   
   return Response.json(
-    { error: null, data: { userName: "amir", id: "01" } },
+    { userName: "amir", id: "01", token: 'ttttttttt', maxAge: 1000000 },
     {
       status: 200,
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         // "set-Cookie": `token=${token}`
       },
     }

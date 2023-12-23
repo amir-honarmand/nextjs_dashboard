@@ -9,8 +9,10 @@ import SidebarContainer from "@/app/(main)/container/sidebar-container";
 import { useDispatch, useSelector } from "react-redux";
 import { UserModel } from "@/interfaces/user.interface";
 import { isAuth, setLoading, setUserData } from "@/redux/reducers/userSlice";
-
-const drawerWidth = 240;
+import { destroyCookie, setCookie } from "nookies";
+import { COOKIES_PATH, DRAWER_WIDTH } from "@/constants/variables";
+import { apiService } from "@/services/api";
+import { SnackbarProvider } from "notistack";
 
 export default function BasicLayout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
@@ -19,41 +21,47 @@ export default function BasicLayout({ children }: { children: React.ReactNode })
   const user = useSelector((state: any) => state.user);
 
   // fetch user
-  useEffect(()=>{
-    if(user.isAuth) return;
+  useEffect(() => {
+    if (user.isAuth) return;
 
-    console.log('inja')
+    (async () => {
+      const {data, status} = await apiService.fetchUser();
 
-    const userData: UserModel = { userName: "amir011", id: "01" };
-
-    if(userData){
-      dispatch(isAuth(true));
-      dispatch(setUserData(userData));
-      console.log('inja 2')
-    }else{
-      dispatch(setLoading(false))
-      console.log('inja 3')
-    }
-
+      if (data) {
+        // destroyCookie(null, 'token');
+        setCookie(null, 'token', data.token, {path: COOKIES_PATH, maxAge: data.maxAge})
+        // dispatch(isAuth(true));
+        // dispatch(setUserData(getUser));
+      } else {
+        // dispatch(setLoading(false));
+      }
+    })();
   }, [user]);
-  
+
   const handleDrawerToggle = (): void => {
     setMobileOpen(!mobileOpen);
   };
 
   return (
+    <SnackbarProvider
+      preventDuplicate={true}
+      dense={true}
+      anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
+      maxSnack={5}
+    >
       <Grid container sx={{ minHeight: "100vh" }}>
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
-          <SidebarLayout drawerWidth={drawerWidth} handleDrawerToggle={handleDrawerToggle}>
+          <SidebarLayout drawerWidth={DRAWER_WIDTH} handleDrawerToggle={handleDrawerToggle}>
             <SidebarContainer
-              drawerWidth={drawerWidth}
+              drawerWidth={DRAWER_WIDTH}
               handleDrawerToggle={handleDrawerToggle}
               mobileOpen={mobileOpen}
             />
           </SidebarLayout>
-          <MainLayout drawerWidth={drawerWidth}>{children}</MainLayout>
+          <MainLayout drawerWidth={DRAWER_WIDTH}>{children}</MainLayout>
         </Box>
       </Grid>
+    </SnackbarProvider>
   );
 }
