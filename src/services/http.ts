@@ -14,7 +14,7 @@ export const httpService = async (
 ): Promise<AxiosResponse<any, any>> => {
   let getToken: string | { [key: string]: string } = nookies.get(null, "token");
   getToken = getToken["token"];
-  const asToken = token || getToken || '';
+  const asToken = token || getToken || "";
 
   const config: AxiosRequestConfig<any> = {
     baseURL,
@@ -40,11 +40,16 @@ export const httpService = async (
       } else return customSnackbar.error(res?.data?.message || res?.message);
     })
     .catch((e: any) => {
-      customSnackbar.error(errorHandler(e));
-      if (e?.status === STATUS_CODE.UNAUTHORIZED && isCSR()) {
+      if (e?.response?.status === STATUS_CODE.UNAUTHORIZED && isCSR()) {
         nookies.destroy(null, "token");
-        return (window.location.href = "/");
+        return (window.location.href = "/auth");
       }
+      if (e?.response?.status === STATUS_CODE.INTERNAL_SERVER_ERROR) {
+        customSnackbar.error("مشکلی پیش آمده لطفا دوباره تلاش کنید");
+      } else {
+        customSnackbar.error(errorHandler(e));
+      }
+
       throw e;
     });
 };

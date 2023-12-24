@@ -1,4 +1,3 @@
-import { HTTP_METHOD } from "@/constants/enums";
 import { httpService } from "./http";
 
 export const apiService = {

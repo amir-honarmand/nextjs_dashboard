@@ -21,21 +21,23 @@ export default function BasicLayout({ children }: { children: React.ReactNode })
   const user = useSelector((state: any) => state.user);
 
   // fetch user
+  const fetchUser = async (): Promise<void> => {
+    const { data } = await apiService.fetchUser();
+
+    if (data) {
+      const user: UserModel = data.user;
+
+      dispatch(setUserData(user));
+      dispatch(isAuth(true));
+    } else {
+      dispatch(setLoading(false));
+    }
+  };
+
+  // useEffect
   useEffect(() => {
     if (user.isAuth) return;
-
-    (async () => {
-      const {data, status} = await apiService.fetchUser();
-
-      if (data) {
-        // destroyCookie(null, 'token');
-        setCookie(null, 'token', data.token, {path: COOKIES_PATH, maxAge: data.maxAge})
-        // dispatch(isAuth(true));
-        // dispatch(setUserData(getUser));
-      } else {
-        // dispatch(setLoading(false));
-      }
-    })();
+    fetchUser();
   }, [user]);
 
   const handleDrawerToggle = (): void => {
