@@ -4,7 +4,7 @@ import LogoutIcon from "../icons/LogoutIcon";
 
 export default function LogoutBtn() {
   return (
-    <SButton label="خروج">
+    <SButton label="خروج" onClick={()=>{}}>
       <LogoutIcon/>
     </SButton>
   );

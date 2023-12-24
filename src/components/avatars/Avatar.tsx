@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function SAvatar({
   src,
   alt,
@@ -7,5 +9,5 @@ export default function SAvatar({
   alt: string;
   classes?: string;
 }) {
-  return <img className={classes ? classes : "w-10 h-10 rounded-full"} src={src} alt={alt} />;
+  return <Image className={classes ? classes : "w-10 h-10 rounded-full"} src={src} alt={alt} />;
 }

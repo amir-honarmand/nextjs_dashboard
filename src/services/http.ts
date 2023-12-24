@@ -3,35 +3,37 @@ import { HttpType } from "@/interfaces/httpType.interface";
 import { customSnackbar } from "@/utils/SnackbarUtils";
 import { isCSR } from "@/utils/csrCheck";
 import { errorHandler } from "@/utils/errorHandler";
-import axios from "axios";
-import nookies from 'nookies'
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import nookies from "nookies";
 
 const baseURL = `${process.env.NEXT_PUBLIC_API_URL}`;
 
 export const httpService = async (
   url: string,
-  { params, data, method, headers = {}, token, body, ...res }: HttpType = {}
-) => {
-  let getToken: string | { [key: string]: string } = nookies.get(null, 'token');
-  getToken = getToken['token'];
-  const asToken = token || getToken;
+  { params, data, method, headers = {}, token, ...res }: HttpType = {}
+): Promise<AxiosResponse<any, any>> => {
+  let getToken: string | { [key: string]: string } = nookies.get(null, "token");
+  getToken = getToken["token"];
+  const asToken = token || getToken || '';
 
-  // @ts-ignore
-  return axios({
+  const config: AxiosRequestConfig<any> = {
     baseURL,
     url,
     headers: {
-      ...((token || getToken) && {
+      ...(asToken && {
         Authorization: `Bearer ${asToken}`,
       }),
+      "Content-Type": "application/json",
       ...headers,
     },
     params,
     data,
-    body,
     method: method ? method : HTTP_METHOD.GET,
+    // withCredentials: true,
     ...res,
-  })
+  };
+
+  return axios(config)
     .then((res: any) => {
       if (handleStatusSuccess(res?.status)) {
         return res;
@@ -40,8 +42,8 @@ export const httpService = async (
     .catch((e: any) => {
       customSnackbar.error(errorHandler(e));
       if (e?.status === STATUS_CODE.UNAUTHORIZED && isCSR()) {
-        nookies.destroy(null, 'token');
-        return (window.location.href = '/');
+        nookies.destroy(null, "token");
+        return (window.location.href = "/");
       }
       throw e;
     });

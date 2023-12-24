@@ -4,5 +4,5 @@ export interface HttpType {
   method?: "Get" | "Put" | "Post" | "Patch" | "Delete";
   headers?: any;
   token?: string;
-  body?: any;
+  // body?: any;
 }
