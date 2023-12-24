@@ -9,5 +9,14 @@ export default function SAvatar({
   alt: string;
   classes?: string;
 }) {
-  return <Image className={classes ? classes : "w-10 h-10 rounded-full"} src={src} alt={alt} />;
+  return (
+    <Image
+      className={classes ? classes : "w-10 h-10 rounded-full"}
+      src={src}
+      alt={alt}
+      width={40}
+      height={40}
+      quality={75}
+    />
+  );
 }

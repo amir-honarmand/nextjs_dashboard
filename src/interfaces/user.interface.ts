@@ -1,5 +1,6 @@
 export interface UserModel {
+  id: string;
   fullName: string;
   role: string;
-  id: string;
+  avatar: string;
 }
