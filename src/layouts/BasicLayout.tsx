@@ -13,12 +13,13 @@ import { destroyCookie, setCookie } from "nookies";
 import { COOKIES_PATH, DRAWER_WIDTH } from "@/constants/variables";
 import { apiService } from "@/services/api";
 import { SnackbarProvider } from "notistack";
+import { InitialState } from "@/interfaces/initialState.interface";
 
 export default function BasicLayout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
 
   const dispatch: any = useDispatch();
-  const user = useSelector((state: any) => state.user);
+  const user: InitialState = useSelector((state: any) => state.user);
 
   // fetch user
   const fetchUser = async (): Promise<void> => {
